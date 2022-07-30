@@ -1,6 +1,6 @@
 function Spa(){
     return (<React.Fragment>
-        <Hello></Hello>
+        <GroceryList/>
     </React.Fragment>)
 }
 
