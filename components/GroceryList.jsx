@@ -5,7 +5,7 @@ function GroceryList(){
     
     
     function addToList() {
-        console.log(`${item}: ${count}`);
+        console.log(`adding ${item}: ${count} to list`);
         setGroceryList([...groceryList, {name: item, amount: count}]);
         console.log(groceryList);
     }
