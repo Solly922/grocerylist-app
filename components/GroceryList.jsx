@@ -2,8 +2,22 @@ function GroceryList(){
     const [item, setItem] = React.useState('');
     const [count, setCount] = React.useState(0);
     const [price, setPrice] = React.useState(0);
+    const [totalPrice, setTotalPrice] = React.useState(0);
     const [groceryList, setGroceryList] = React.useState([]);
+
+    React.useEffect(() => {
+        updateTotal();
+        console.log('using effect')
+    })
     
+    function updateTotal(){
+        let result = 0;
+            groceryList.forEach((item) => {
+                console.log(item)
+                result += parseFloat(item.price) * parseFloat(item.amount);
+            })
+        setTotalPrice(result);
+    }
     
     function addToList() {
         console.log(`adding ${item}: ${count} to list`);
@@ -20,7 +34,7 @@ function GroceryList(){
     let list = groceryList.map((item, index) => {
         return (
             <li key={index}>
-                {item.name}: {item.amount} - {item.price}
+                {item.name}: {item.amount} x{item.price}
                 <button onClick={() => deleteItem(index)}>Remove</button>
             </li>
         )
@@ -37,6 +51,7 @@ function GroceryList(){
             <ul>
                 {list}
             </ul>
+            <h1>Total: ${totalPrice}</h1>
             
             
         </React.Fragment>
