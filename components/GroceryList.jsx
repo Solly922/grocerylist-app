@@ -16,7 +16,7 @@ function GroceryList(){
                 console.log(item)
                 result += parseFloat(item.price) * parseFloat(item.amount);
             })
-        setTotalPrice(result);
+        setTotalPrice(Math.round(result * 100) / 100);
     }
     
     function addToList() {
